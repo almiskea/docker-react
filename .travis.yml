@@ -2,8 +2,10 @@ sodu: required
 services: 
   - docker
 
+
 before_install:
   - docker build -t almiskea/docker-react -f Dockerfile.dev .
 
+  
 script:
   - docker run almiskea/docker-react npm run test -- --coverage
