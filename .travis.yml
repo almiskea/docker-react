@@ -6,6 +6,19 @@ services:
 before_install:
   - docker build -t almiskea/docker-react -f Dockerfile.dev .
 
-  
+
 script:
   - docker run almiskea/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-west-2-035055392830"
+  bucket_path: "docker-react"
+  on:
+     branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_key_id: 
+    secure: "$AWS_SECRET_KEY"
