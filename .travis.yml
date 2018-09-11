@@ -2,10 +2,8 @@ sodu: required
 services: 
   - docker
 
-
 before_install:
   - docker build -t almiskea/docker-react -f Dockerfile.dev .
-
 
 script:
   - docker run almiskea/docker-react npm run test -- --coverage
@@ -20,5 +18,5 @@ deploy:
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_key_id: 
-    secure: $AWS_SECRET_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
