@@ -11,7 +11,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          Ali is the best
+          I have been modified through the feature branch
         </p>
       </div>
     );
